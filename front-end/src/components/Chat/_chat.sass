@@ -1,0 +1,112 @@
+@import 'assets/variables';
+@import 'assets/mixins';
+
+.containerchat
+  width: 100%
+  height: 100vh
+  border-right: 1px solid #cccccc
+  border-left: 1px solid #cccccc
+
+  .chat_navbar
+    width: 100%
+    height: 24px
+    background: #054C44
+
+  .chat_header
+    width: 100%
+    height: 62px
+    padding: 8px 16px
+    background: #075E55
+    +flex(row, flex-start, center)
+
+    .person_img
+      width: 40px
+      height: 40px
+      object-fit: cover
+      border-radius: 50%
+
+    .person_name
+      +flex(column)
+
+    .wrappericon
+      +flex(row, space-between, center)
+
+    .flex-start
+      +flex(column, flex-start)
+
+  .chat_wrapperbody
+    width: 100%
+    height: calc( 100% - 86px - 62px )
+    background-color: #e4dbd4
+    overflow: hidden
+    overflow-y: auto
+    padding: 16px
+    position: relative
+
+    .buble_person
+      width: fit-content
+      max-width: 70%
+      min-height: 47px
+      padding: 6px 8px
+      background-color: #ffffff
+      border-radius: 6px
+      margin: 12px auto 12px 0
+      position: relative
+
+      .hour
+        position: absolute
+        bottom: 5px
+        right: 5px
+
+    .buble_me
+      width: fit-content
+      min-width: 80px
+      max-width: 70%
+      min-height: 47px
+      padding: 6px 8px
+      background-color: #dcf8c7
+      border-radius: 6px
+      margin: 12px 0 12px auto
+      position: relative
+
+      .hour_send
+        position: absolute
+        bottom: 5px
+        right: 5px
+        +flex(row, center, center)
+
+        .checked
+          color: #75c0c5 !important
+
+        .not_checked
+          color: #a5bd92 !important
+
+  .chat_message
+    width: 100%
+    height: 62px
+    background: #f0f0f0
+    padding: 8px 16px
+    +flex(row, none, center)
+
+    .grey_icon
+      color: #919191
+
+    .message_box
+      width: 100%
+      height: 100%
+      border-radius: 20px
+      background-color: #ffffff
+      border: none
+      outline: none
+      text-align: left
+      font-size: 14px
+      font-weight: 400
+      padding: 10px 15px
+      color: $color--black
+      position: relative
+      @include inputPlaceholder()
+        font-size: 14px
+        font-weight: 400
+        color: #919191
+        text-align: left
+

@@ -1,0 +1,226 @@
+@import 'assets/variables';
+
+// -----------------------------------------------------------------------------
+//
+// Typography
+//
+// -----------------------------------------------------------------------------
+@mixin font--primary($weight, $style: normal) {
+  font-weight: $weight;
+  font-style: $style;
+}
+
+// @mixin font--secondary($weight, $style: normal) {
+//   font-weight: $weight;
+//   font-style: $style;
+// }
+
+@mixin font-size($size) {
+  font-size: #{$size}px;
+  font-size: #{$size / 10}rem;
+}
+
+@mixin h1 {
+  @include font-size($font-size--h1);
+  @include font--primary($bold);
+  line-height: $line-height--h1;
+  margin-bottom: 2rem;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--h1);
+    line-height: $desktop--line-height--h1;
+    margin-bottom: 3rem;
+  }
+}
+
+@mixin h2 {
+  @include font-size($font-size--h2);
+  @include font--primary($bold);
+  line-height: $line-height--h2;
+  margin-bottom: 2rem;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--h2);
+    line-height: $desktop--line-height--h2;
+    margin-bottom: 3rem;
+  }
+}
+
+@mixin h3 {
+  @include font-size($font-size--h3);
+  @include font--primary($bold);
+  line-height: $line-height--h3;
+  margin-bottom: 2rem;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--h3);
+    line-height: $desktop--line-height--h3;
+  }
+}
+
+@mixin h4 {
+  @include font-size($font-size--h4);
+  @include font--primary($bold);
+  line-height: $line-height--h4;
+  margin-bottom: 1rem;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--h4);
+    line-height: $desktop--line-height--h4;
+  }
+}
+
+@mixin body--title {
+  @include font-size($font-size--title);
+  @include font--primary($bold);
+  line-height: $line-height--body;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--title);
+    @include font--primary($bold);
+    line-height: $desktop--line-height--body;
+  }
+}
+
+@mixin body--sub-title {
+  @include font-size($font-size--sub-title);
+  @include font--primary($reguler);
+  line-height: $line-height--body--small;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--sub-title);
+    @include font--primary($reguler);
+    line-height: $desktop--line-height--body-small;
+  }
+}
+
+@mixin body--regular {
+  @include font-size($font-size--body);
+  @include font--primary($reguler);
+  line-height: $line-height--body;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--body);
+    @include font--primary($reguler);
+    line-height: $desktop--line-height--body;
+  }
+}
+
+@mixin body--small {
+  @include font-size($font-size--body--small);
+  @include font--primary($light);
+  line-height: $line-height--body--small;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--body--small);
+    @include font--primary($light);
+    line-height: $desktop--line-height--body--small;
+  }
+}
+
+@mixin body--large {
+  @include font-size($font-size--body--large);
+  @include font--primary($reguler);
+  line-height: $line-height--body--large;
+
+  @media #{$normal} {
+    @include font-size($desktop--font-size--body--large);
+    @include font--primary($reguler);
+    line-height: $desktop--line-height--body--large;
+  }
+}
+
+// --------------------------------------------------------
+//
+// Flex Box
+//
+// -----------------------------------------------------------------------------
+@mixin flex($flexDirection: row, $justifyDirection: none, $alignDirection: none) {
+  display: flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyDirection;
+  align-items: $alignDirection;
+}
+
+// --------------------------------------------------------
+//
+// scrollbar
+//
+// -----------------------------------------------------------------------------
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%), $margin: none) {
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin: $margin
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin: $margin
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin: $margin
+  }
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin: $margin
+  }
+}
+
+// --------------------------------------------------------
+//
+// box shadow
+//
+// -----------------------------------------------------------------------------
+@mixin shadow($p1, $p2, $p3, $color) {
+  box-shadow: $p1 $p2 $p3 $color
+}
+
+@mixin inputPlaceholder() {
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    &::placeholder {
+      @content;
+    }
+}

@@ -1,0 +1,241 @@
+// -----------------------------------------------------------------------------
+//
+// Grid utilities
+//
+// -----------------------------------------------------------------------------
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1240px,
+);
+
+$screen-sm: #{map-get($grid-breakpoints, sm)};
+$screen-md: #{map-get($grid-breakpoints, md)};
+$screen-lg: #{map-get($grid-breakpoints, lg)};
+$screen-xl: #{map-get($grid-breakpoints, xl)};
+
+$screen-phone: $screen-sm;
+$screen-tablet: $screen-md;
+$screen-desktop: $screen-lg;
+$screen-lg-desktop: $screen-xl;
+
+$screen-xs-max: #{map-get($grid-breakpoints, sm) - 1};
+$screen-sm-max: #{map-get($grid-breakpoints, md) - 1};
+$screen-md-max: #{map-get($grid-breakpoints, lg) - 1};
+$screen-lg-max: #{map-get($grid-breakpoints, xl) - 1};
+
+// Lazy media query variables.
+$mobile: 'screen and (min-width: #{$screen-sm})';
+$tablet: 'screen and (min-width: #{$screen-md})';
+$normal: 'screen and (min-width: #{$screen-lg})';
+$wide: 'screen and (min-width: #{$screen-xl})';
+$mobile-only: 'screen and (max-width: #{$screen-sm-max})';
+$tablet-only: 'screen and (min-width: #{$screen-md}) and (max-width: #{$screen-md-max})';
+$normal-only: 'screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-lg-max})';
+$mobile-down: 'screen and (max-width: #{$screen-sm-max})';
+$tablet-down: 'screen and (max-width: #{$screen-md-max})';
+$normal-down: 'screen and (max-width: #{$screen-lg-max})';
+
+// -----------------------------------------------------------------------------
+//
+// Typography
+//
+// -----------------------------------------------------------------------------
+
+// Primary fonts will be used for 90% of the text styles, mainly body text.
+// Secondary fonts will be used mainly for headings.
+$font--primary: 'Roboto';
+// $font--secondary: 'Helvetica', Arial, sans-serif;
+
+// MOBILE: Font sizes (in pixels) / line-heights
+$font-size--h1: 30;
+$line-height--h1: 4rem;
+
+$font-size--h2: 24;
+$line-height--h2: 3.2rem;
+
+$font-size--h3: 20;
+$line-height--h3: 2.6rem;
+
+$font-size--h4: 14;
+$line-height--h4: 1.8rem;
+
+$font-size--button: 14;
+$line-height--button: 1.8rem;
+
+$font-size--table: 10;
+
+$font-size--title: 16;
+
+$font-size--sub-title: 10;
+
+$font-size--body: 12;
+$line-height--body: 2.8rem;
+
+$font-size--body--small: 14;
+$line-height--body--small: 2.2rem;
+
+$font-size--body--large: 18;
+$line-height--body--large: 3rem;
+
+
+// DESKTOP: Font sizes (in pixels) / line-heights
+$desktop--font-size--h1: 60;
+$desktop--line-height--h1: 7rem;
+
+$desktop--font-size--h2: 40;
+$desktop--line-height--h2: 5rem;
+
+$desktop--font-size--h3: 26;
+$desktop--line-height--h3: 3.6rem;
+
+$desktop--font-size--h4: 16;
+$desktop--line-height--h4: 2rem;
+
+$desktop--font-size--button: 16;
+$desktop--line-height--button: 2rem;
+
+$desktop--font-size--table: 10;
+
+$desktop--font-size--title: 16;
+
+$desktop--font-size--sub-title: 10;
+
+$desktop--font-size--body: 12;
+$desktop--line-height--body: 3.6rem;
+
+$desktop--font-size--body--small: 16;
+$desktop--line-height--body--small: 2.4rem;
+
+$desktop--font-size--body--large: 24;
+$desktop--line-height--body--large: 3.8rem;
+
+// Font Weight
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+// -----------------------------------------------------------------------------
+//
+// Colors
+//
+// -----------------------------------------------------------------------------
+// $color--primary: #644AAA;
+
+$color--black: #434343;
+$color--sub-black: #8D8D8D;
+$color--white: #fff;
+$color--blue: #26A4FF;
+$color--red: #FF3030;
+$color--gold: #CBA35E;
+
+
+$color--grey: #CECECE;
+
+$color--transparent: rgba(255, 255, 255, 0);
+$color--placeholder: #f0f0f0;
+$color--error: #da3636;
+
+// -----------------------------------------------------------------------------
+//
+// Borders
+//
+// -----------------------------------------------------------------------------
+// $color--border: $color--grey--lighter;
+$border-radius--primary: 12px;
+$border-radius--secondary: 8px;
+$border-radius--rare: 4px;
+
+// -----------------------------------------------------------------------------
+//
+// Shadows
+//
+// -----------------------------------------------------------------------------
+$box-shadow--primary: 0 3px 6px 0 #0000001A;
+$box-shadow--secondary: 0 4px 10px 0 #E5E5E5BD;
+$box-shadow--third: 0 1px 8px 0 #00000021;
+
+// -----------------------------------------------------------------------------
+//
+// z-index
+//
+// -----------------------------------------------------------------------------
+$z-index-0: 0;
+$z-index-1: 10;
+$z-index-2: 20;
+$z-index-3: 30;
+$z-index-4: 100;
+$z-index-5: 1000;
+
+$breakpoint-tablet-max: 1024px;
+$breakpoint-tablet-min: 768px;
+$breakpoint-mobile-min: 320px;
+$breakpoint-mobile-max: 480px;
+$breakpoint-laptop-min: 1200px;
+$breakpoint-laptop-max: 1599px;
+$breakpoint-biglaptop-min: 1600px;
+$breakpoint-biglaptop-max: 1700px;
+
+// using @extend %center-fixed
+%center-fixed {
+  position: fixed;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+%full-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+%center-absolute {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+%full-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*
+/* Positioning */
+/* position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+/* Display & Box Model */
+// display: inline-block;
+// overflow: hidden;
+// box-sizing: border-box;
+// width: 100px;
+// height: 100px;
+// padding: 10px;
+// border: 10px solid #333;
+// margin: 10px;
+
+/* Color */
+// background: #000;
+// color: #fff
+
+/* Text */
+// font-family: sans-serif;
+// font-size: 16px;
+// line-height: 1.4;
+// text-align: right;
+
+/* Other */
+// cursor: pointer;
+

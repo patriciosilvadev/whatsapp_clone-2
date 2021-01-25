@@ -1,0 +1,60 @@
+@import 'assets/variables';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible_none {
+  visibility: hidden
+}
+
+html {
+  font-size: 62.5%;
+}
+
+// html, body {
+//   height: 100% !important
+// }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-scrollbar {
+  display: none
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  overflow: hidden;
+  text-rendering: optimizeLegibility !important;
+  background-color: #ffffff;
+}
